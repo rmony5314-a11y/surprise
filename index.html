@@ -281,7 +281,7 @@
                 <span class="cursor"></span>
             </div>
         </div>
-        <button class="next-button" onclick="goToNextPage()">Let's Go! ✨</button>
+        <button class="next-button" onclick=autoSlideCake"()">Let's Go! ✨</button>
     </div>
 
     <div class="audio-controls" bis_skin_checked="1">
@@ -446,5 +446,27 @@
         
         window.addEventListener('resize', handleResize);
         handleResize();
+		function autoSlideCake() {
+    // ১. কনফেটি ওড়ানো
+    confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+
+    // ২. কেক পরিবর্তন
+    const cakeElement = document.getElementById('cake'); 
+    if(cakeElement) {
+        cakeElement.innerHTML = "🍰✨";
+    }
+
+    // ৩. ৩ সেকেন্ড পর অটো স্লাইড
+    setTimeout(() => {
+        if (typeof goToNextPage === "function") {
+            goToNextPage();
+        }
+    }, 3000); 
+		}
+		
     </script>
 </body></html>
